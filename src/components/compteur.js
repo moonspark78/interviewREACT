@@ -42,14 +42,19 @@ export default function Compteur () {
       return `${first} ${last}`;
   } */
     const [user, setUser] = useState(null);
+    const [page, setPage] = useState(1);
 
     useEffect(() => {
       const fetchUser = async () => {
-        const response = await axios.get("https://randomuser.me/api");
+        const response = await axios.get("https://randomuser.me/api?page=${page}");
         setUser(response.data.results[0]);
       };
       fetchUser();
-    }, []);
+    }, [page]);
+
+    const handleNextPage = () => {
+      setPage(page + 1);
+    };
 
     if (!user) {
       return <div>Loading...</div>;
@@ -78,6 +83,7 @@ export default function Compteur () {
           <h1>{`${first} ${last}`}</h1>
           <img src={large} alt={`${first} ${last}`} />
         </div>
+        <button onClick={handleNextPage}>Next</button>
     </div>
   )
 }
