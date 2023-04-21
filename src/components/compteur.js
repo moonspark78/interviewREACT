@@ -53,7 +53,7 @@ export default function Compteur () {
 
     if (!user) {
       return <div>Loading...</div>;
-    }
+    } 
 
     const { first, last } = user.name;
     const { large } = user.picture;
