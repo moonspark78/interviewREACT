@@ -11,6 +11,8 @@ function App() {
     <div className="App">
       <Compteur/>
       <Child name={name}/>
+
+      <button onClick={() => setName("Elodie")}>Change Name</button>
     </div>
     
   );
