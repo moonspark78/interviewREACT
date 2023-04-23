@@ -40,9 +40,24 @@ function App() {
       <Child name={name} changeName={changeName}/>
       <ul>
         {numbers.map(num =>{
-          return <li>{num}</li>
+          return <li key={num}>{num}</li>
         })}
       </ul>
+
+
+      <ul>
+        {details.map((detail, index) =>{
+          return (
+            <div key={index}>
+            <li>{detail.name}</li>
+            <li>{detail.age}</li>
+            </div>
+          );
+          
+        })}
+      </ul>
+
+
     </div>
     
   );
