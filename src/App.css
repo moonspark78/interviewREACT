@@ -26,8 +26,14 @@
   gap: 14px;
   padding: 9px 9px;
   margin-top: 8px;
+  width: 700px;
+  margin: auto;
 }
 
 .btn{
   width: 300px;
+}
+
+.input-container{
+  border: solid 1px black;
 }

@@ -35,13 +35,22 @@ function App() {
   /* cree un state on on va conserver les date des 4 inputs */
   const [objData, setObjData] = useState({});
   const getInputs = (value, name) => {
-    let data = {[name]: value};
-    setObjData({ ...objData, ...data})
+    let data = { [name]: value };
+    setObjData({ ...objData, ...data });
   };
-  const submit = (e) =>{
+  const submit = (e) => {
     e.preventDefault();
     console.log(objData);
-  }
+  };
+  /* Alors les datas de plusieurs inputs */
+  const [inputs, setInputs] = useState({});
+  const getInputValue = (data) => {
+    console.log(data.target.value);
+    let { name, value } = data.target;
+    let input = { [name]: value };
+    setInputs({...inputs,...input});
+  };
+  console.log(inputs);
 
   return (
     <div className="App">
@@ -64,7 +73,9 @@ function App() {
         })}
       </ul>
 
-      <br/><br/><h3> ------------------Form ---------------------</h3>
+      <br />
+      <br />
+      <h3> ------------------Form ---------------------</h3>
 
       <div className="form">
         <input
@@ -99,13 +110,33 @@ function App() {
         <button type="reset">Reset</button>
       </div>
 
-      <br/><br/><h3> ------------------Dynamique Inputs ---------------------</h3>
+      <br />
+      <br />
+      <h3> ------------------Dynamique Inputs ---------------------</h3>
+
       <div className="input-container">
-          <input className="to" placeholder="Name"/>
-          <input className="to" placeholder="Age"/>
-          <input className="to"placeholder="Years of Experience"/>
+        <input
+          className="to"
+          placeholder="Name"
+          name="name"
+          onChange={getInputValue}
+        />
+        <input
+          className="to"
+          placeholder="Age"
+          name="age"
+          onChange={getInputValue}
+        />
+        <input
+          className="to"
+          placeholder="Years of Experience"
+          name="yoe"
+          onChange={getInputValue}
+        />
       </div>
-      <button className="btn">Add New Group</button><br/><br/><br/><br/>
+      <button className="btn">Add New Group</button><br /><br /><br /><br />
+      
+      
     </div>
   );
 }
