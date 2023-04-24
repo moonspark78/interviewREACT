@@ -1,18 +1,16 @@
-
-import './App.css';
+import "./App.css";
 import Compteur from "./components/compteur";
 import Child from "./components/child";
-import { useState } from 'react';
-
+import { useState } from "react";
 
 function App() {
   /* on va passer le name en props vers le composant enfant child */
-  const [name, setName]= useState("Souli")
-  const changeName = () =>{
-    setName("Elodie")
-  }
-  const numbers = [1,2,3,4,5,6,7,8,9,10];
-  const details =[
+  const [name, setName] = useState("Souli");
+  const changeName = () => {
+    setName("Elodie");
+  };
+  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const details = [
     {
       name: "Elodie",
       age: 28,
@@ -29,52 +27,74 @@ function App() {
       name: "kjdfnk",
       age: 18,
     },
-    { 
+    {
       name: "titi",
       age: 81,
     },
   ];
-  const getInputs = (e) => {
-    console.log(e);
+  /* cree un state on on va conserver les date des 4 inputs */
+  const [objData, setObjData] = useState({});
+  const getInputs = (value, name) => {
+    let data = {[name]: value};
+    setObjData({ ...objData, ...data})
   };
+  const submit = () =>{
+    console.log(objData);
+  }
 
-
-
-  
   return (
     <div className="App">
-      <Compteur/>
-      <Child name={name} changeName={changeName}/>
+      <Compteur />
+      <Child name={name} changeName={changeName} />
       <ul>
-        {numbers.map(num =>{
-          return <li key={num}>{num}</li>
+        {numbers.map((num) => {
+          return <li key={num}>{num}</li>;
         })}
       </ul>
 
-
       <ul>
-        {details.map((detail, index) =>{
+        {details.map((detail, index) => {
           return (
             <div key={index}>
-            <li>{detail.name}</li>
-            <li>{detail.age}</li>
+              <li>{detail.name}</li>
+              <li>{detail.age}</li>
             </div>
           );
-          
         })}
       </ul>
 
       <div className="form">
-          <input className='to' placeholder='Write your Name ...' onChange={(e) => getInputs(e.target.value, e.target.name)} name='name'/>
-          <input className='to' placeholder='Write your  Age ...' onChange={(e) => getInputs(e.target.value, e.target.name)} name='age'/>
-          <input className='to' placeholder='Write your Hobbies ...' onChange={(e) => getInputs(e.target.value, e.target.name)} name='hobbies'/>
-          <input className='to' placeholder='Write a Date ... ' onChange={(e) => getInputs(e.target.value, e.target.name)} name='date'/>
-          <button>Submit</button>
+        <input
+          className="to"
+          placeholder="Write your Name ..."
+          onChange={(e) => getInputs(e.target.value, e.target.name)}
+          name="name"
+          type="text"
+        />
+        <input
+          className="to"
+          placeholder="Write your  Age ..."
+          onChange={(e) => getInputs(e.target.value, e.target.name)}
+          name="age"
+          type="number"
+        />
+        <input
+          className="to"
+          placeholder="Write your Hobbies ..."
+          onChange={(e) => getInputs(e.target.value, e.target.name)}
+          name="hobbies"
+          type="text"
+        />
+        <input
+          className="to"
+          placeholder="Write a Date ... "
+          onChange={(e) => getInputs(e.target.value, e.target.name)}
+          name="date"
+          type="date"
+        />
+        <button onClick={submit}>Submit</button>
       </div>
-
-
     </div>
-    
   );
 }
 
