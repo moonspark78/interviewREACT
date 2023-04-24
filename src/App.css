@@ -17,3 +17,17 @@
   margin-top: 8px;
   
 }
+
+.input-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  padding: 9px 9px;
+  margin-top: 8px;
+}
+
+.btn{
+  width: 300px;
+}

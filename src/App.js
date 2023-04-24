@@ -38,7 +38,8 @@ function App() {
     let data = {[name]: value};
     setObjData({ ...objData, ...data})
   };
-  const submit = () =>{
+  const submit = (e) =>{
+    e.preventDefault();
     console.log(objData);
   }
 
@@ -62,6 +63,8 @@ function App() {
           );
         })}
       </ul>
+
+      <br/><br/><h3> ------------------Form ---------------------</h3>
 
       <div className="form">
         <input
@@ -93,7 +96,16 @@ function App() {
           type="date"
         />
         <button onClick={submit}>Submit</button>
+        <button type="reset">Reset</button>
       </div>
+
+      <br/><br/><h3> ------------------Dynamique Inputs ---------------------</h3>
+      <div className="input-container">
+          <input className="to" placeholder="Name"/>
+          <input className="to" placeholder="Age"/>
+          <input className="to"placeholder="Years of Experience"/>
+      </div>
+      <button className="btn">Add New Group</button><br/><br/><br/><br/>
     </div>
   );
 }
