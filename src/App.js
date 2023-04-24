@@ -58,6 +58,8 @@ function App() {
     setInputs({...inputs,...input});
   };
   console.log(inputs);
+  /* inner html  */
+  let inner = `<p style="font-size : 78px">This is my home</p>`;
 
   return (
     <div className="App">
@@ -151,6 +153,14 @@ function App() {
 
       <h4 style={styles.internal}>Internal css</h4>
       <h4 style={{color: "green", backgroundColor: "black"}}> Inline css</h4>
+
+
+      <br/><br /><br /><h3> ------------------InnerHTML in React ---------------------</h3><br/><br /><br /><br />
+      <div dangerouslySetInnerHTML={{ __html: inner}}>
+      {/* on ne voit pas les balise et le style c'est appliqué dessus */}
+      
+      </div>
+
 
 
 
