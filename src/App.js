@@ -3,6 +3,13 @@ import Compteur from "./components/compteur";
 import Child from "./components/child";
 import { useState } from "react";
 
+
+const styles ={
+  internal: {
+    color: "blue"
+  }
+}
+
 function App() {
   /* on va passer le name en props vers le composant enfant child */
   const [name, setName] = useState("Souli");
@@ -136,7 +143,18 @@ function App() {
       </div>
       <button className="btn">Add New Group</button><br /><br /><br /><br />
       
-      
+      <br/><br /><br /><br /><h3> ------------------Style CSS In React ---------------------</h3>
+
+      {/* Il existe 3 types : external, internal , inline 
+      pour external cest le classique .ccs
+      pour le internale  */}
+
+      <h4 style={styles.internal}>Internal css</h4>
+      <h4 style={{color: "green", backgroundColor: "black"}}> Inline css</h4>
+
+
+
+
     </div>
   );
 }
