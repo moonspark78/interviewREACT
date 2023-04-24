@@ -29,12 +29,14 @@ function App() {
       name: "kjdfnk",
       age: 18,
     },
-    {
+    { 
       name: "titi",
       age: 81,
     },
   ];
-  const getInputs = () => {};
+  const getInputs = (e) => {
+    console.log(e);
+  };
 
 
 
@@ -63,10 +65,10 @@ function App() {
       </ul>
 
       <div className="form">
-          <input className='to' placeholder='Write your Name ...'/>
-          <input className='to' placeholder='Write your  Age ...'/>
-          <input className='to' placeholder='Write your Hobbies ...'/>
-          <input className='to' placeholder='Write a Date ... '/>
+          <input className='to' placeholder='Write your Name ...' onChange={(e) => getInputs(e.target.value, e.target.name)} name='name'/>
+          <input className='to' placeholder='Write your  Age ...' onChange={(e) => getInputs(e.target.value, e.target.name)} name='age'/>
+          <input className='to' placeholder='Write your Hobbies ...' onChange={(e) => getInputs(e.target.value, e.target.name)} name='hobbies'/>
+          <input className='to' placeholder='Write a Date ... ' onChange={(e) => getInputs(e.target.value, e.target.name)} name='date'/>
           <button>Submit</button>
       </div>
 
