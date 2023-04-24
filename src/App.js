@@ -33,7 +33,12 @@ function App() {
       name: "titi",
       age: 81,
     },
-];
+  ];
+  const getInputs = () => {};
+
+
+
+  
   return (
     <div className="App">
       <Compteur/>
@@ -56,6 +61,14 @@ function App() {
           
         })}
       </ul>
+
+      <div className="form">
+          <input className='to' placeholder='Write your Name ...'/>
+          <input className='to' placeholder='Write your  Age ...'/>
+          <input className='to' placeholder='Write your Hobbies ...'/>
+          <input className='to' placeholder='Write a Date ... '/>
+          <button>Submit</button>
+      </div>
 
 
     </div>
